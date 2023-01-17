@@ -25,14 +25,15 @@ select count("SKU" from products -> 1092 itemss counted.
 
 select count(distinct "productSKU") from sales_by_sku -> 462 items counted.
 
-select count("SKU") from products a inner join sales_by_sku b on a."SKU" = b."productSKU" -> only 454 items counted. This means some SKU items missing from master products tabble which creates a gap for the products information.
-
 select count(distinct "productSKU") from all_sessions -> 536 items counted.
 
-select count(distinct "SKU") from products a inner join all_sessions b on a."SKU" = b."productSKU" -> 389 items counted. This means that transactions table all_sessions has SKUs which are not present in the master products table which creates further gap for the product information.
+select count(distinct "SKU") from products a inner join all_sessions b on a."SKU" = b."productSKU" -> 389 items counted. This means that transactions table all_sessions has SKUs which are not present in the master products table which creates further gap for product information.
+
+select count("SKU") from products a inner join sales_by_sku b on a."SKU" = b."productSKU" -> only 454 items counted. This means some SKU items are missing from master products tabble which creates a gap for information analysis.
 
 CONCLUSION: THE PRODUCT INFORMATION WHICH IS A KEY IDENTIFIER TO GENERATE INSIGHTS IS LOW ON QUALITY AND HENCE MAY LIMIT THE QUALITY OF ANALYSIS.
 
+[SUGGESTED REVISED ERD DIAGRAM](schema.png)
 
 
 

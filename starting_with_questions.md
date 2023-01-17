@@ -4,13 +4,12 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
-select "country", "city", max("totalTransactionRevenue") as Highest_Transaction_Revenue
+```sql select "country", "city", max("totalTransactionRevenue") as Highest_Transaction_Revenue
 from all_sessions_cpy where "totalTransactionRevenue" != 0
 group by "country", "city"
-order by Highest_Transaction_Revenue desc limit 15
+order by Highest_Transaction_Revenue desc limit 15```
 
 Answer:
-
 "country"	"city"	"highest_transaction_revenue"
 "United States"	"not available in demo dataset"	1015
 "United States"	"Atlanta"	742
@@ -32,14 +31,12 @@ Answer:
 **Question 2: What is the average number of products ordered from visitors in each city and country?**
 
 SQL Queries: 
-
-select "country", "city", cast(avg("productQuantity") as integer) as Avg_Num_of_Products
+```select "country", "city", cast(avg("productQuantity") as integer) as Avg_Num_of_Products
 from all_sessions_cpy where "productQuantity" !=0
 group by "country", "city"
-order by Avg_Num_of_Products desc limit 15
+order by Avg_Num_of_Products desc limit 15```
 
 Answer:
-
 "country"	"city"	"avg_num_of_products"
 "United States"	"not available in demo dataset"	11
 "Spain"	"Madrid"	10
@@ -61,10 +58,10 @@ Answer:
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 
 SQL Queries:
-select "v2ProductCategory", "country", "city", count (*) as Num_of_Products
+```select "v2ProductCategory", "country", "city", count (*) as Num_of_Products
 from all_sessions_cpy where "productQuantity" != 0
 group by "v2ProductCategory", "country", "city"
-order by Num_of_Products desc limit 20
+order by Num_of_Products desc limit 20```
 
 Answer:
 "v2ProductCategory"	"country"	"city"	"num_of_products"
@@ -93,10 +90,10 @@ Answer:
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
 SQL Queries:
-select "v2ProductName", "country", "city", sum ("productQuantity") as Num_of_Products_Sold
+```select "v2ProductName", "country", "city", sum ("productQuantity") as Num_of_Products_Sold
 from all_sessions_cpy where "productQuantity" != 0
 group by "v2ProductName", "country", "city"
-order by Num_of_Products_Sold desc
+order by Num_of_Products_Sold desc```
 
 Answer:
 "v2ProductName"	"country"	"city"	"num_of_products_sold"
@@ -154,10 +151,10 @@ Answer:
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 SQL Queries: 
-select "country", "city", sum ("totalTransactionRevenue") as total_Transaction_Revenue
+```select "country", "city", sum ("totalTransactionRevenue") as total_Transaction_Revenue
 from all_sessions_cpy where "totalTransactionRevenue" != 0
 group by "country", "city"
-order by total_Transaction_Revenue desc
+order by total_Transaction_Revenue desc```
 
 Answer:
 "country"	"city"	"total_transaction_revenue"

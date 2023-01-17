@@ -8,7 +8,7 @@ Queries:
 Below, provide the SQL queries you used to clean your data.
 
 ----------------------------------------------------------------------------------
-FURST, MAKE A COPY OF ALL TABLES (WITH DATA) EXCEPT SALES_REPORT:
+FIRST, MAKE A COPY OF ALL TABLES (WITH DATA) EXCEPT SALES_REPORT:
 
 Table sales_report not copied as it is just a join of sales_sku and products tables and hence is derivative. 
 
@@ -105,3 +105,13 @@ update all_sessions_cpy set "productQuantity" = 0 where "productQuantity" is nul
 update all_sessions_cpy set "productRevenue" = 0 where "productRevenue" is null
 
 update all_sessions_cpy set "transactionRevenue" = 0 where "transactionRevenue" is null
+
+update analytics_cpy set "bounces" = 0 where "bounces" is null
+
+update analytics_cpy set "pageviews" = 0 where "pageviews" is null
+
+update analytics_cpy set "timeonsite" = 0 where "timeonsite" is null
+
+update analytics_cpy set "revenue" = 0 where "revenue" is null
+
+update analytics_cpy set "units_sold" = 0 where "units_sold" is null
